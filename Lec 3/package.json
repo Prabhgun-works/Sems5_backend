@@ -1,0 +1,27 @@
+{
+  
+  "name": "mypackage-prabhgun",
+  "version": "1.0.0",
+  "description": "Lecture 3 but actually 4",
+  "homepage": "https://github.com/Prabhgun-works/Sems5_backend#readme",
+  "bugs": {
+    "url": "https://github.com/Prabhgun-works/Sems5_backend/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Prabhgun-works/Sems5_backend.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "hbs": "^4.2.0"
+  }
+}
