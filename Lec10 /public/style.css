@@ -1,0 +1,18 @@
+.bd {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    text-decoration: none;
+    border-bottom: none;
+  }
+  .bd img{
+    width: 500px;
+    height: 520px;
+  }
+  .login-page{
+    display:flex;
+    flex-direction: column;
+  }

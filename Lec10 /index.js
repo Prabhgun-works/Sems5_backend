@@ -1,13 +1,24 @@
 const express = require('express');
 const app = express();
-const PORT = 3000; // Or any other desired port
+const port = 5050;
+app.use(express.urlencoded({extended:true}))
+// app.use(express.static(__dirname+"/public"))
 
-// Define a basic route for the homepage
-app.get('/', (req, res) => {
-  res.send('<h1>Hello from your Express server!</h1>');
+
+// app.use(express.static("/Users/godsent/Desktop/Sem5/Backend/Lec10 /public"));
+
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/public/main.html"); // or adjust path as needed
 });
-
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server is listening at http://localhost:${PORT}`);
+app.post("/addUser", (req, res)=> {
+  console.log(req.body); []
+  let username= req.body.username; 
+  let password = req.body.password; 
+  res.json({
+    username:username, 
+    password : password
+  })
+})
+app.listen(port, () => {
+  console.log(`Server has started at http://localhost:${port}`);
 });
