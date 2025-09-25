@@ -1,0 +1,17 @@
+{
+  "name": "lec-28",
+  "version": "1.0.0",
+  "description": "This Lecture is about Prism-ORM.  Postgress  : Pg lib -> Connect server to DB . Asks to Build a QUERY To add data to DB.  ORM : Object Relational Mapping . ORM : Midle layer between Server and DB.  ORM : ORM get the class from server , runs sql to add and fetch data from db, returns a json file that is then sent to cleint.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@prisma/client": "^6.16.1",
+    "prisma": "^6.16.1"
+  }
+}
