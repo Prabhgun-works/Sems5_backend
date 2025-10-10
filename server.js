@@ -1,41 +1,28 @@
-const { WebSocketServer } = require("ws");
-const wss = new WebSocketServer({ port: 8888 });
+                                             
 
-let rooms = new Map();
-// {
-//     // "1234"= [s1, s2, s3]; 
-// }
-wss.on("connection", function (socket) {
-    console.log("A new user connected");
-    socket.on("message", function (message) {
-        // {type: "join", payload: {roomId: "1234"}}
-        let parsedMessage = JSON.parse(message);
-        if (parsedMessage.type == "join") {
-            let roomId = parsedMessage.payload.roomId;
+// wss.on("connection", function(socket){
+//     console.log("Server running on "+ port); 
+//     socket.send("Welcome!"); 
+//     setInterval(() => {
+//         socket.send("Realince stack price is "+ " " + Math.random() ); 
+//     }, 1000); 
 
-            if (!rooms.get(roomId)) {
-                rooms.set(roomId, new Set());
-            }
-            rooms.get(roomId).add(socket);
+// })
+const { WebSocketServer } = require('ws');
+const port = 8012;
 
-            // Assign the roomId to the socket for later use
-            socket.roomId = roomId;
+const wss = new WebSocketServer({ port });
 
-            socket.send("You are added to room " + roomId.toString());
-            console.log(rooms);
-        } else if (parsedMessage.type == "chat") {
-            let roomId = socket.roomId;
-            let message = parsedMessage.payload.message;
+wss.on("connection", function(socket) {
+    console.log("Server running on " + port);
+    socket.send("Welcome!");
 
-            if (!roomId || !rooms.get(roomId)) {
-                socket.send("You are not in a valid room.");
-                return;
-            }
-
-            let allClients = rooms.get(roomId);
-            allClients.forEach((s) => {
-                s.send(message);
-            });
+    socket.on("message", function(message) {
+        console.log(message.toString());
+        if (message.toString() === "ping") {
+            socket.send("Pong");
+        } else {
+            socket.send("You have not sent a ping message");
         }
     });
 });
