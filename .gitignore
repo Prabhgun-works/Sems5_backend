@@ -1,9 +1,14 @@
-# Ignore everything by default
-*
+# Ignore node_modules, package.json, package.lock.json, and .gitignore
+node_modules/
+package.json
+package-lock.json
+.gitignore
 
-# Allow only Backend lectures folder
-!/Backend lectures/
-!/Backend lectures/**
+# Ignore .DS_Store files
+.DS_Store
 
-# Keep gitignore itself
-!.gitignorePostGreSQL/
+# Include all lectures and related folders
+!Lec*/
+!Assignments/
+!PostGreSQL*/
+!Project_hospital/
